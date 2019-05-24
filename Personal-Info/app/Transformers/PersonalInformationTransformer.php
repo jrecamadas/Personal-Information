@@ -15,7 +15,8 @@ class PersonalInformationTransformer extends TransformerAbstract
             'address'=> $personalInformation->address, 
             'birthday'=> $personalInformation->birthday, 
             'phone_number'=> $personalInformation->phone_number, 
-            'email'=> $personalInformation->email
+            'email'=> $personalInformation->email,
+            'response_code' => '200'
         ];
     }
 }

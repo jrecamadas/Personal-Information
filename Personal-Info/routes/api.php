@@ -15,8 +15,11 @@ use Illuminate\Http\Request;
 if (app()->getProvider('\Dingo\Api\Provider\LaravelServiceProvider')) {
     $api = app('Dingo\Api\Routing\Router');
     $api->version('v1', ['namespace' => 'App\Http\Controllers\Api'], function ($api) {
-        //$api->resource('information', 'PersonalInformationsController');
-        $api->get('information', 'PersonalInformationsController@index');
+
+        $api->get('get-name', 'PersonalInformationsController@getDataByName'); 
+        $api->get('informations', 'PersonalInformationsController@retrieveData'); 
+        $api->resource('data', 'PersonalInformationsController');
+        $api->patch('updateinfo/{id}', 'PersonalInformationsController@update');
     });
     
 }
@@ -27,4 +30,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware('auth:api')->get('/informations', 'PersonalInformationsController@retrieveData');
+//Route::middleware('auth:api')->get('/informations', 'PersonalInformationsController@retrieveData');

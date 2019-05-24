@@ -20,15 +20,18 @@ class APIBaseController extends BaseController implements APIInterface
      * @param Dingo\Api\Http\Request
      * @return Resource Collection
      */
+    
     public function index(Request $request)
     {
         if($this->repository->model() == "App\Models\PersonalInformation") {
             if($request->get('user_id') && ($request->get('include') && $request->get('include') == "photo")) {
                 //Do nothing
-            } else {
+            } 
+            else {
                 $modelObj = app($this->repository->model());
                 //$this->authorize('view', $modelObj);
             }
+            
         } else {
             $modelObj = app($this->repository->model());
             //$this->authorize('view', $modelObj);
